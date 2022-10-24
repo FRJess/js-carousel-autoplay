@@ -62,3 +62,16 @@ function playCarousel(){
   setInterval(nextFunction, 2000);
 };
 
+//Stop play when mouse over slider
+function autoPlayStop(){
+  clearInterval(nextFunction);
+  console.log ("falso");
+};
+
+//Start again when mouse out of slider
+function autoPlayStart(){
+  playCarousel(true);
+  console.log ("vero");
+};
+
+// playCarousel();
