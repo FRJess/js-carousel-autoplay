@@ -12,6 +12,9 @@ let counterImages = 0;
 let sliderHtml = '';
 let thumbsHtml = '';
 
+next.addEventListener('click',nextFunction);
+prev.addEventListener('click',prevFunction);
+
 
 // Conditional statement for images visualization
 for(let i = 1; i <= numImages; i++){
@@ -32,20 +35,21 @@ const listthumbs = document.getElementsByClassName('item-thumb');
 listImages[counterImages].classList.add('active');
 listthumbs[counterImages].classList.add('active');
 
-prev.addEventListener('click',function(){
+function prevFunction(){
   listImages[counterImages].classList.remove('active');
   listthumbs[counterImages].classList.remove('active');
   counterImages++;
   if(counterImages === numImages) counterImages = 0;
   listImages[counterImages].classList.add('active');
   listthumbs[counterImages].classList.add('active');
-})
 
-next.addEventListener('click',function(){
+};
+
+function nextFunction(){
   listImages[counterImages].classList.remove('active');
   listthumbs[counterImages].classList.remove('active');
   counterImages--;
   if(counterImages < 0) counterImages = numImages - 1;
   listImages[counterImages].classList.add('active');
   listthumbs[counterImages].classList.add('active');
-})
+};
