@@ -53,25 +53,24 @@ function prevFunction(){
   listthumbs[counterImages].classList.add('active');
 };
 
-//Carousel autoplay function
+//CAROUSEL AUTOPLAY
 
 slider.addEventListener('mouseover', autoPlayStop);
-slider.addEventListener('mouseout', autoPlayStart);
+slider.addEventListener('mouseleave', autoPlayStart);
 
-function playCarousel(){
-  setInterval(nextFunction, 2000);
-};
+//AutoPlay when opening page
+
+let playCarousel;
+playCarousel = setInterval(nextFunction, 2000);
 
 //Stop play when mouse over slider
 function autoPlayStop(){
-  clearInterval(nextFunction);
-  console.log ("falso");
+  clearInterval(playCarousel);
+  console.log ("stop");
 };
 
 //Start again when mouse out of slider
 function autoPlayStart(){
-  playCarousel(true);
-  console.log ("vero");
+  playCarousel = setInterval(nextFunction, 2000);
+  console.log ("play");
 };
-
-// playCarousel();
