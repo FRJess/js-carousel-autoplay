@@ -4,8 +4,8 @@
 //add images to html file
 const slider = document.querySelector('.slider');
 const thumbs = document.querySelector('.thumbs');
-const next = document.querySelector('.up');
-const prev = document.querySelector('.down');
+const next = document.querySelector('.down');
+const prev = document.querySelector('.up');
 
 const numImages = 5;
 let counterImages = 0;
@@ -14,7 +14,6 @@ let thumbsHtml = '';
 
 next.addEventListener('click',nextFunction);
 prev.addEventListener('click',prevFunction);
-
 
 // Conditional statement for images visualization
 for(let i = 1; i <= numImages; i++){
@@ -35,7 +34,7 @@ const listthumbs = document.getElementsByClassName('item-thumb');
 listImages[counterImages].classList.add('active');
 listthumbs[counterImages].classList.add('active');
 
-function prevFunction(){
+function nextFunction(){
   listImages[counterImages].classList.remove('active');
   listthumbs[counterImages].classList.remove('active');
   counterImages++;
@@ -45,7 +44,7 @@ function prevFunction(){
 
 };
 
-function nextFunction(){
+function prevFunction(){
   listImages[counterImages].classList.remove('active');
   listthumbs[counterImages].classList.remove('active');
   counterImages--;
@@ -53,3 +52,13 @@ function nextFunction(){
   listImages[counterImages].classList.add('active');
   listthumbs[counterImages].classList.add('active');
 };
+
+//Carousel autoplay function
+
+slider.addEventListener('mouseover', autoPlayStop);
+slider.addEventListener('mouseout', autoPlayStart);
+
+function playCarousel(){
+  setInterval(nextFunction, 2000);
+};
+
