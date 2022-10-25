@@ -55,7 +55,7 @@ function prevFunction(){
 
 //CAROUSEL AUTOPLAY
 
-slider.addEventListener('mouseover', autoPlayStop);
+slider.addEventListener('mouseenter', autoPlayStop);
 slider.addEventListener('mouseleave', autoPlayStart);
 
 //AutoPlay when opening page
@@ -66,11 +66,9 @@ playCarousel = setInterval(nextFunction, 2000);
 //Stop play when mouse over slider
 function autoPlayStop(){
   clearInterval(playCarousel);
-  console.log ("stop");
 };
 
 //Start again when mouse out of slider
 function autoPlayStart(){
   playCarousel = setInterval(nextFunction, 2000);
-  console.log ("play");
 };
